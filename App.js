@@ -1,35 +1,33 @@
-import { View, StyleSheet, Image, ScrollView, Dimensions } from "react-native";
-
-// const screenWidth = Dimensions.get("window").width;
-// const height = Dimensions.get("window").height;
-
-const { height, width } = Dimensions.get("window");
+import { View, StyleSheet, TextInput } from "react-native";
 
 function App() {
   return (
-    <ScrollView>
-      <View style={styles.container}>
-        <Image source={require("./images/img-1.jpg")} style={styles.image} />
-        <Image
-          source={{
-            uri: "https://images.pexels.com/photos/34101675/pexels-photo-34101675.jpeg",
-          }}
-          style={styles.image}
-        />
-        <Image
-          source={{
-            uri: "https://images.pexels.com/photos/10875452/pexels-photo-10875452.jpeg",
-          }}
-          style={styles.image}
-        />
-        <Image
-          source={{
-            uri: "https://images.pexels.com/photos/14584233/pexels-photo-14584233.jpeg",
-          }}
-          style={styles.image}
-        />
-      </View>
-    </ScrollView>
+    <View style={styles.container}>
+      <TextInput
+        placeholder="Enter your name"
+        style={styles.input}
+        onChangeText={(value) => {
+          console.log("name...", value);
+        }}
+      />
+      <TextInput
+        placeholder="Enter your password"
+        style={styles.input}
+        secureTextEntry={true}
+        onChangeText={(value) => {
+          console.log("password...", value);
+        }}
+      />
+      <TextInput
+        placeholder="Explain your expertise..."
+        style={[styles.input, { height: 200 }]}
+        multiline={true}
+        maxLength={100}
+        onChangeText={(value) => {
+          console.log("expertise...", value);
+        }}
+      />
+    </View>
   );
 }
 
@@ -39,9 +37,19 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     flexDirection: "column",
+    justifyContent: "center",
+    alignItems: "center",
+    paddingVertical: 50,
+    paddingHorizontal: 24,
   },
-  image: {
-    height: height,
-    width: width,
+  input: {
+    fontSize: 24,
+    borderWidth: 1,
+    borderColor: "black",
+    width: "100%",
+    paddingHorizontal: 22,
+    borderRadius: 16,
+    marginBottom: 24,
+    textAlignVertical: "top",
   },
 });
