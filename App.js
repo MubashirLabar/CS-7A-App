@@ -1,31 +1,27 @@
+import { useState } from "react";
 import { View, StyleSheet, TextInput } from "react-native";
 
 function App() {
+  const [username, setUsername] = useState("BSCS 7th A");
+  const [password, setPassword] = useState("");
+
+  console.log("username...", username);
+  console.log("password...", password);
+
   return (
     <View style={styles.container}>
       <TextInput
         placeholder="Enter your name"
         style={styles.input}
-        onChangeText={(value) => {
-          console.log("name...", value);
-        }}
+        value={username}
+        onChangeText={(value) => setUsername(value)}
       />
       <TextInput
         placeholder="Enter your password"
         style={styles.input}
         secureTextEntry={true}
-        onChangeText={(value) => {
-          console.log("password...", value);
-        }}
-      />
-      <TextInput
-        placeholder="Explain your expertise..."
-        style={[styles.input, { height: 200 }]}
-        multiline={true}
-        maxLength={100}
-        onChangeText={(value) => {
-          console.log("expertise...", value);
-        }}
+        value={password}
+        onChangeText={(value) => setPassword(value)}
       />
     </View>
   );
