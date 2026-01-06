@@ -17,7 +17,7 @@ function LoginScreen({ navigation }) {
       Alert.alert("Validation Error", "Username is required.");
     } else if (!password) {
       Alert.alert("Validation Error", "Password is required");
-    } else if (username === "Admin" && password === "123456") {
+    } else if (username === "Admin" && password === "admin@123") {
       navigation.navigate("Home");
     } else {
       Alert.alert("Error", "Invalid username or password");
