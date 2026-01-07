@@ -24,7 +24,6 @@ const App = () => {
   return (
     <NavigationContainer>
       <Stack.Navigator screenOptions={{ headerShown: false }}>
-        <Stack.Screen name="Home" component={HomeScreen} />
         <Stack.Screen
           name="Login"
           component={LoginScreen}
@@ -33,6 +32,7 @@ const App = () => {
             headerShown: false,
           }}
         />
+        <Stack.Screen name="Home" component={HomeScreen} />
       </Stack.Navigator>
     </NavigationContainer>
   );
